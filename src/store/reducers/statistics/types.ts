@@ -1,7 +1,7 @@
 import {Statistics} from "../../../statistics/models/statistics";
 
 export interface StatisticsState {
-    statistics: Statistics,
+    statistics?: Statistics | undefined,
     isLoading: boolean,
     error: string
 }
@@ -11,7 +11,6 @@ export enum StatisticsActionEnum {
     SET_STATISTICS = 'SET_STATISTICS',
     SET_IS_LOADING = 'SET_IS_LOADING',
     SET_ERROR = 'SET_ERROR'
-
 }
 
 export interface StatisticsSetStatisticsAction {
@@ -30,10 +29,7 @@ export interface StatisticsSetIsLoadingAction {
 }
 
 
-
 export type StatisticsAction =
     StatisticsSetStatisticsAction
-    |StatisticsSetErrorAction
-    | StatisticsSetIsLoadingAction
-
-;
+    | StatisticsSetErrorAction
+    | StatisticsSetIsLoadingAction;

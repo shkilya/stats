@@ -1,5 +1,9 @@
 import statistics from './statistics';
+import statisticsFilter from './statistics-filter';
 
-export default {
-    statistics
+const allReducers =  {
+    statistics,
+    statisticsFilter
 };
+
+export default allReducers;

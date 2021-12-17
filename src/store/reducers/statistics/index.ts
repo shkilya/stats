@@ -1,17 +1,16 @@
 import {StatisticsAction, StatisticsActionEnum, StatisticsState} from "./types";
-import {Statistics} from "../../../statistics/models/statistics";
 
 
 const initialState: StatisticsState = {
-    statistics: {} as Statistics,
+    statistics: undefined,
     error: "",
     isLoading: false,
 }
 
-export default (state = initialState, action: StatisticsAction): StatisticsState => {
+const reducer = (state = initialState, action: StatisticsAction): StatisticsState => {
     switch (action.type) {
         case StatisticsActionEnum.SET_IS_LOADING:
-            return {...state, isLoading: true}
+            return {...state, isLoading: action.payload}
         case StatisticsActionEnum.SET_ERROR:
             return {...state, isLoading: false, error: action.payload}
         case StatisticsActionEnum.SET_STATISTICS:
@@ -20,3 +19,4 @@ export default (state = initialState, action: StatisticsAction): StatisticsState
             return state;
     }
 }
+export default reducer
